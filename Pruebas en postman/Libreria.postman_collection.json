@@ -32,6 +32,63 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "User - Traer lista de usuarios - Endpoint: localhost:8080/listaUsuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/listaUsuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"listaUsuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User - Logueo de usuario - Endpoint localhost:8080/loggin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"CamilaLoca\",\r\n    \"password\": \"canejo213\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loggin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loggin"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "CamilaLoca",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "canejo213",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
