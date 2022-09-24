@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Caro
  */
 @Repository 
-public class UserRepository {
+public class UserRepository implements IUserRepository{
     
     @Autowired
     private JdbcTemplate plantilla;
