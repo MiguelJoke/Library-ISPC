@@ -323,21 +323,23 @@ public class Users extends javax.swing.JPanel {
             }
             else{
                 Statement stm = reg.createStatement();
-                ResultSet counter = stm.executeQuery("SELECT * FROM `users`");
+                ResultSet counter = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
 
                 int count = 0;
                 while(counter.next()){count++;}
 
-                String list[][] = new String[count][6];
+                String list[][] = new String[count][8];
                 int i = 0;
-                ResultSet re = stm.executeQuery("SELECT * FROM `users`");
+                ResultSet re = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
                 while(re.next()){
                     list[i][0] = re.getString("id");
-                    list[i][1] = re.getString("name");
-                    list[i][2] = re.getString("last_name_p");
-                    list[i][3] = re.getString("last_name_m");
-                    list[i][4] = re.getString("domicilio");
-                    list[i][5] = re.getString("tel");
+                    list[i][1] = re.getString("username");
+                    list[i][2] = re.getString("password");
+                    list[i][3] = re.getString("name");
+                    list[i][4] = re.getString("last_name_p");
+                    list[i][5] = re.getString("last_name_m");
+                    list[i][6] = re.getString("domicilio");
+                    list[i][7] = re.getString("tel");
                     i++;
                 }
                 int id = Integer.parseInt(list[idcell][0]);
@@ -352,7 +354,7 @@ public class Users extends javax.swing.JPanel {
                     Logger.getLogger(Reports.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     try {
-                    stm2.executeUpdate("DELETE FROM `users` WHERE `id` = "+id+" LIMIT 1");
+                    stm2.executeUpdate("UPDATE users SET borrado = 1 where id ="+id);
                     javax.swing.JOptionPane.showMessageDialog(this, "¡Usuario borrado! \n", "HECHO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                     GetUsers();
                     } catch (SQLException ex) {
@@ -374,14 +376,14 @@ public class Users extends javax.swing.JPanel {
             else{
                 
                 Statement stm = reg.createStatement();
-                ResultSet counter = stm.executeQuery("SELECT * FROM `users`");
+                ResultSet counter = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
 
                 int count = 0;
                 while(counter.next()){count++;}
 
                 String list[][] = new String[count][6];
                 int i = 0;
-                ResultSet re = stm.executeQuery("SELECT * FROM `users`");
+                ResultSet re = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
                 while(re.next()){
                     list[i][0] = re.getString("id");
                     list[i][1] = re.getString("name");
@@ -459,14 +461,14 @@ public class Users extends javax.swing.JPanel {
     
     private void GetUsers() throws SQLException{
         Statement stm = reg.createStatement();
-        ResultSet counter = stm.executeQuery("SELECT * FROM `users`");
+        ResultSet counter = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
         
         int count = 0;
         while(counter.next()){count++;}
         
         String list[][] = new String[count][6];
         int i = 0;
-        ResultSet re = stm.executeQuery("SELECT * FROM `users`");
+        ResultSet re = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
         while(re.next()){
             list[i][0] = re.getString("id");
             list[i][1] = re.getString("name");
