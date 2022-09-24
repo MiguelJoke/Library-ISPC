@@ -1,5 +1,3 @@
-
-
 package com.ispc.library.repository;
 
 import com.ispc.library.model.User;
@@ -61,8 +59,5 @@ public class UserRepository {
                                         }  
                                     });  
     }
-    
-    
-    
     
 }

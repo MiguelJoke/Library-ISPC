@@ -466,23 +466,24 @@ public class Users extends javax.swing.JPanel {
         int count = 0;
         while(counter.next()){count++;}
         
-        String list[][] = new String[count][6];
+        String list[][] = new String[count][7];
         int i = 0;
         ResultSet re = stm.executeQuery("SELECT * FROM `users` WHERE borrado = 0");
         while(re.next()){
             list[i][0] = re.getString("id");
-            list[i][1] = re.getString("name");
-            list[i][2] = re.getString("last_name_p");
-            list[i][3] = re.getString("last_name_m");
-            list[i][4] = re.getString("domicilio");
-            list[i][5] = re.getString("tel");
+            list[i][1] = re.getString("username");
+            list[i][2] = re.getString("name");
+            list[i][3] = re.getString("last_name_p");
+            list[i][4] = re.getString("last_name_m");
+            list[i][5] = re.getString("domicilio");
+            list[i][6] = re.getString("tel");
             i++;
         }
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
         list,
         new String [] {
-            "ID", "Nombre", "Apellido P.", "Apellido M.", "Domicilio", "Teléfono"
+            "ID", "Nombre de usuario", "Nombre", "Apellido P.", "Apellido M.", "Domicilio", "Teléfono"
         }));
     }
 
