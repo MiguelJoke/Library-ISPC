@@ -4,6 +4,7 @@ package com.ispc.library.controller;
 
 import com.ispc.library.model.User;
 import com.ispc.library.repository.UserRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,4 +27,10 @@ public class UserController {
         repoUser.guardarUsuario(usuario);
         
     }
+    
+    @GetMapping("/listaUsuarios")
+    public List<User> buscarUsuarios(){
+        return repoUser.buscarUsuarios();
+    }
+    
 }
