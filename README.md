@@ -2,7 +2,7 @@
 
 ## Integrantes del grupo:
 
- * Batistoni, Alejandra
+ * Battistoni, Alejandra
  * Bima, Carolina
  * Gentilini, Domingo
  * López, Miguel
