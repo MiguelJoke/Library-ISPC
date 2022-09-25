@@ -27,6 +27,7 @@ public class UserService implements IUserService {
         }
     }
 
+    
     @Override
     public boolean logginUsuario(LoguinDto datosUsuario) {
         //trae la lista de usuario de la base de datos y busca si coinciden con los de la bbdd
@@ -37,11 +38,9 @@ public class UserService implements IUserService {
                 logueo = true;
             }
         }
+        //devuelve true si usuario y clave estan ok, false si el usuario o clave estan mal o no existen en la bbdd
         return logueo;
     }
 
-    @Override
-    public boolean borrarUsuario(User usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }
