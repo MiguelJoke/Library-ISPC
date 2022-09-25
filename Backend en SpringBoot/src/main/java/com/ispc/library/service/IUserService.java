@@ -11,5 +11,5 @@ import dto.LoguinDto;
 public interface IUserService {
     public void registrarUsuario(User usuario);
     public boolean logginUsuario(LoguinDto datosUsuario);
-    public boolean borrarUsuario(User usuario);
+    //public boolean borrarUsuario(User usuario); no va a poder borrar su usuario, tiene que hacerlo el bibliotecario
 }

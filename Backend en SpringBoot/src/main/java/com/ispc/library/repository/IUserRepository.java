@@ -12,4 +12,5 @@ import java.util.List;
 public interface IUserRepository {
     public void guardarUsuario(User usuario); 
     public List<User> buscarUsuarios();
+    public User buscarUnUsuario(String nombreUsuario);
 }

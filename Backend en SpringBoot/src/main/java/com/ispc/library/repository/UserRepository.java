@@ -59,5 +59,27 @@ public class UserRepository implements IUserRepository{
                                         }  
                                     });  
     }
-    
+
+    @Override
+    public User buscarUnUsuario(String nombreUsuario) {
+        final String BUSCAR_UN_USUARIO = "SELECT * FROM USERS WHERE username='"+ nombreUsuario+"'";
+        return plantilla.query(BUSCAR_UN_USUARIO, new ResultSetExtractor<User>(){  
+                                @Override  
+                                 public User extractData(ResultSet rs) throws SQLException,  
+                                        DataAccessException {  
+                                        User usuario=new User();  
+                                        usuario.setUsername(rs.getString(2));  
+                                        usuario.setPassword(rs.getString(3));  
+                                        usuario.setName(rs.getString(4));  
+                                        usuario.setLast_name_p(rs.getString(5));  
+                                        usuario.setLast_name_m(rs.getString(6));  
+                                        usuario.setDomicilio(rs.getString(7)); 
+                                        usuario.setTel(rs.getString(8)); 
+                                        usuario.setSanctions(rs.getInt(9)); 
+                                        usuario.setSanc_money(rs.getInt(10)); 
+                                        return usuario;  
+                                        }  
+                                    });  
+        
+    }
 }
