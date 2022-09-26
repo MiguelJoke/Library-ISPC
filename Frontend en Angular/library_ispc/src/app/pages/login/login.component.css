@@ -1,0 +1,35 @@
+.contentpage{
+    height: 80vh;
+}
+
+.loginform{
+    margin-top:40%;
+    margin-left: 20%;
+}
+
+.btncolor{
+    background-color: #6645ac;
+    color: white;
+}
+
+.inputcolor{
+    background-color: rgb(192, 97, 176);
+    color:white;
+    border:none;
+    height: 50px;
+}
+
+.inputcolor::placeholder{
+    color:white;
+}
+
+.perilla{
+    background-color:#6645ac;
+}
+
+.createaccount{
+    margin-left: 48%;
+}
+
+.bgimg{
+}
