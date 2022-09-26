@@ -1,0 +1,2 @@
+colores barra de menu #372461 y #7900CF
+colores fondo 0ED0F8 y CE02CF
