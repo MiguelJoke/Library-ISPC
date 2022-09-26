@@ -12,5 +12,4 @@ import java.util.List;
 public interface IBooksRepository {
     public List<Book> traerTodosLibros();
     public List<LibrosDisponiblesDto> traerLibrosDisponibles();
-    
 }

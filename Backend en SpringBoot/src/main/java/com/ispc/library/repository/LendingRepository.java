@@ -2,6 +2,7 @@
 package com.ispc.library.repository;
 
 import com.ispc.library.model.Book;
+import com.ispc.library.model.User;
 import dto.LendingDto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,9 +24,14 @@ public class LendingRepository implements ILendingRepository {
     @Autowired
     private JdbcTemplate plantilla;
     
+    @Autowired
+    private IUserRepository userRepo;
+    
     @Override
-    public void crearReserva(String nombreusuario, Book libro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void crearReserva(String nombreUsuario, LendingDto libro) {
+        User usuario = userRepo.buscarUnUsuario(nombreUsuario);
+        final String INSERT_LENDING= "INSERT INTO lendings (user_id, book_id, date_out, date_return) values (?,?,?,?)";
+        plantilla.update(INSERT_LENDING, usuario.getId(), libro.getIdLibro(),libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());
     }
 
     @Override
