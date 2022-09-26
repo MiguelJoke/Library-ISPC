@@ -16,6 +16,7 @@ import lombok.Setter;
 @Setter
 public class LendingDto {
     private int idLibro;
+    private String nombreUsuario;
     private String nombreLibro;
     private String autorLibro;
     private String fechaSalida;

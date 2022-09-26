@@ -27,8 +27,7 @@ public class LendingController {
     
     
     @PostMapping("/nuevaReserva")
-    public void crearNuevaReserva (@RequestBody String nombreUsuario,
-                                   @RequestBody LendingDto nuevaReserva){
-        lendingService.registrarReserva(nombreUsuario, nuevaReserva) ;
+    public void crearNuevaReserva (@RequestBody LendingDto nuevaReserva){
+        lendingService.registrarReserva(nuevaReserva) ;
     }
 }

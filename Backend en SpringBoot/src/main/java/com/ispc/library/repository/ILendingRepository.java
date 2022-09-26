@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface ILendingRepository {
     public List<LendingDto> buscarReservasXUsuario(String nombreusuario);
-    public void crearReserva(String nombreusuario, LendingDto libro);
+    public void crearReserva(LendingDto libro);
     
     
 }
