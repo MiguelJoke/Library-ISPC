@@ -19,10 +19,16 @@ public class LendingController {
     @Autowired
     private ILendingService lendingService;
     
+    
     @PostMapping("/buscarReservas")
     public List<LendingDto> buscarReservasxUsuario(@RequestBody String nombreUsuario){
         return lendingService.buscarReservasxUsuario(nombreUsuario);
     }
     
- 
+    
+    @PostMapping("/nuevaReserva")
+    public void crearNuevaReserva (@RequestBody String nombreUsuario,
+                                   @RequestBody LendingDto nuevaReserva){
+        lendingService.registrarReserva(nombreUsuario, nuevaReserva) ;
+    }
 }

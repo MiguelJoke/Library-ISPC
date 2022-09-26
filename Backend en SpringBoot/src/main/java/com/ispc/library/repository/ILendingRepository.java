@@ -2,7 +2,6 @@
 
 package com.ispc.library.repository;
 
-import com.ispc.library.model.Book;
 import dto.LendingDto;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  */
 public interface ILendingRepository {
     public List<LendingDto> buscarReservasXUsuario(String nombreusuario);
-    public void crearReserva(String nombreusuario, Book libro);
+    public void crearReserva(String nombreusuario, LendingDto libro);
     
     
 }
