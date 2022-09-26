@@ -1,7 +1,6 @@
 
 package com.ispc.library.repository;
 
-import com.ispc.library.model.Book;
 import com.ispc.library.model.User;
 import dto.LendingDto;
 import java.sql.ResultSet;
@@ -28,8 +27,8 @@ public class LendingRepository implements ILendingRepository {
     private IUserRepository userRepo;
     
     @Override
-    public void crearReserva(String nombreUsuario, LendingDto libro) {
-        User usuario = userRepo.buscarUnUsuario(nombreUsuario);
+    public void crearReserva(LendingDto libro) {
+        User usuario = userRepo.buscarUnUsuario(libro.getNombreUsuario());
         final String INSERT_LENDING= "INSERT INTO lendings (user_id, book_id, date_out, date_return) values (?,?,?,?)";
         plantilla.update(INSERT_LENDING, usuario.getId(), libro.getIdLibro(),libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());
     }

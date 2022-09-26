@@ -24,8 +24,8 @@ public class LendingService implements ILendingService {
     }
 
     @Override
-    public void registrarReserva(String username, LendingDto libro) {
-        lendinRepository.crearReserva(username, libro);
+    public void registrarReserva(LendingDto libro) {
+        lendinRepository.crearReserva(libro);
     }
     
 }
