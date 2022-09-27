@@ -1,7 +1,7 @@
 
 package com.ispc.library.service;
 
-import com.ispc.library.model.Book;
+
 import com.ispc.library.repository.ILendingRepository;
 import dto.LendingDto;
 import java.util.List;
@@ -24,8 +24,8 @@ public class LendingService implements ILendingService {
     }
 
     @Override
-    public void registrarReserva(String username, Book libro) {
-        lendinRepository.crearReserva(username, libro);
+    public void registrarReserva(LendingDto libro) {
+        lendinRepository.crearReserva(libro);
     }
     
 }

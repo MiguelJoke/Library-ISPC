@@ -24,6 +24,7 @@ public class BooksRepository implements IBooksRepository{
     
     @Autowired
     private JdbcTemplate plantilla;
+    
 
     @Override
     public List<Book> traerTodosLibros() {
@@ -53,5 +54,5 @@ public class BooksRepository implements IBooksRepository{
                                         }  
                                     });  
     }
-    
+
 }
