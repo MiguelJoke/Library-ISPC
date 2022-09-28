@@ -34,3 +34,26 @@
 .listmenu a:hover{
     color: black;
 }
+
+.titulohome{
+    text-align: center;
+    margin-top: 200px;
+    color: white;
+}
+
+.txtbiblioteca{
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.txtonline{
+    font-size: 120px;
+    font-weight: bold;
+    color: rgba(156, 247, 216, 0.712);
+}
+
+.slide{
+    font-size: xx-large;
+    text-align: center;
+    height: 400px;
+}
