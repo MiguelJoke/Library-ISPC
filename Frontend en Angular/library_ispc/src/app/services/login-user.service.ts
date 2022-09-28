@@ -13,6 +13,7 @@ export class LoginUserService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
+      //'Access-Control-Request-Headers': '*',
     }),
   };
   public logueo: boolean;
@@ -24,14 +25,15 @@ export class LoginUserService {
 
   //devuelve todas las aplicaciones
   public loguinService(
-    nombreUsuario: string,
-    contrasenia: string
+    username: string,
+    password: string
   ): Observable<boolean> {
+    //let usu = new DatosLoguin(username, password);
     const formData = new FormData();
-    formData.append('username', nombreUsuario);
-    formData.append('password', contrasenia);
-    let loguin = this.url + '/loguin';
-    //let parametros = ;
+    formData.append('username', username);
+    formData.append('password', password);
+
+    let loguin = this.url + '/login';
 
     return this.http.post<boolean>(loguin, formData);
   }

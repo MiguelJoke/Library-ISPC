@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2022 a las 01:11:55
+-- Tiempo de generación: 28-09-2022 a las 21:16:28
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -49,13 +49,13 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`id`, `title`, `date`, `author`, `category`, `edit`, `lang`, `pages`, `description`, `ejemplares`, `stock`, `available`, `borrado`) VALUES
 (1, 'Cien años de soledad', '1987', 'Gabriel Garcia Marquez', 'Realismo mágico', '2da', 'Español', '347', 'Lindo libro, lindo lindo', '8', 3, 1, 0),
-(2, 'Las Malas', '21-10-2019', 'Camila Sosa Villada', 'Realismo magico', '1', 'Español', '200', 'Librazo', '10', 10, 10, 1),
-(3, 'Mi planta de naranja lima', '1987', 'Vasconcelos', 'Novela', ' 5', 'Español', '169', 'Vai a iora como un campion', 'ASs', 12, 9, 1),
-(5, 'El anillo de diamantes', '11-11-1990', 'James Joyce', 'Poesía', '5ta', 'Español', '300', 'Poesia fea', '5', 5, 5, 1),
+(2, 'Las Malas', '21-10-2019', 'Camila Sosa Villada', 'Realismo magico', '1', 'Español', '200', 'Librazo', '10', 10, 10, 0),
+(3, 'Mi planta de naranja lima', '1987', 'Vasconcelos', 'Novela', ' 5', 'Español', '169', 'Vai a iora como un campion', 'ASs', 12, 8, 0),
+(5, 'El anillo de diamantes', '11-11-1990', 'James Joyce', 'Poesía', '5ta', 'Español', '300', 'Poesia fea', '5', 5, 4, 0),
 (6, 'El cavernicola desdentado', '1987', 'Pedro el Escamoso', 'Drama', '1', 'Español', '500', 'Harmoso libraco', 'asdasd', 10, 5, 0),
 (7, 'El gato con botas', '1975', 'Antonio Banderas', 'Cuentos', '5ta', 'Español', '5', 'Cuento infantil', 'asd', 1, 3, 0),
-(8, 'El quijote del manchón', '1875', 'El gallego', 'Clasicos', '1', 'Español', '259', 'Preocupado por la limpieza, don quijote se pone a lavar la ropa', 'sdae', 12, 11, 1),
-(9, 'Condorito', '1999', 'Anonimo', 'Comic', '1', 'Español', '10', 'Comic Chileno', '1', 10, 10, 1);
+(8, 'El quijote del manchón', '1875', 'El gallego', 'Clasicos', '1', 'Español', '259', 'Preocupado por la limpieza, don quijote se pone a lavar la ropa', 'sdae', 12, 11, 0),
+(9, 'Condorito', '1999', 'Anonimo', 'Comic', '1', 'Español', '10', 'Comic Chileno', '1', 10, 10, 0);
 
 -- --------------------------------------------------------
 
@@ -76,13 +76,16 @@ CREATE TABLE `lendings` (
 --
 
 INSERT INTO `lendings` (`id`, `user_id`, `book_id`, `date_out`, `date_return`) VALUES
-(2, 2, 1, '21-09-2022', '26-09-2022'),
 (3, 3, 1, '21-09-2022', '26-09-2022'),
 (4, 1, 4, '21-09-2022', '26-09-2022'),
 (5, 1, 3, '21-09-2022', '26-09-2022'),
 (6, 2, 3, '21-09-2022', '06-10-2022'),
 (7, 4, 3, '21-09-2022', '06-10-2022'),
-(8, 4, 8, '21-09-2022', '06-10-2022');
+(8, 4, 8, '21-09-2022', '06-10-2022'),
+(9, 6, 1, '25-09-2022', '10-10-2022'),
+(10, 6, 5, '25-09-2022', '10-10-2022'),
+(11, 6, 3, '25-09-2022', '10-10-2022'),
+(12, 5, 3, '25-09-2022', '10-10-2022');
 
 -- --------------------------------------------------------
 
@@ -109,12 +112,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `name`, `last_name_p`, `last_name_m`, `domicilio`, `tel`, `sanctions`, `sanc_money`, `borrado`) VALUES
-(1, '', '', 'Carolina', 'Bima', 'Ferreyra', 'Ayacucho 326', '3516565656', 0, 0, 0),
-(2, '', '', 'Mariela', 'Lopez', 'Iriarte', 'Amigorena 345', '3516485298', 2, 200, 1),
-(3, '', '', 'Maria de los Angeles', 'Lopez', 'Heredia', 'San Juan 345', '3514578595', 0, 0, 0),
-(4, '', '', 'Pedro', 'Páramo', 'Perez', 'Pereyra Iraola 2345', '35148759685', 0, 0, 1),
-(5, '', '', 'Michael', 'Pareyra', 'Perez', 'sarasa 2123', '1234567890', 0, 0, 0),
-(6, 'CamilaLoca', 'canejo213', 'Camila', 'Velez', 'Velez', 'Caseros 321', '3516478958', 0, 0, 1),
+(1, 'usuario', '1234', 'Carolina', 'Bima', 'Ferreyra', 'Ayacucho 326', '3516565656', 0, 0, 0),
+(2, 'MarielaLopez', '123456', 'Mariela', 'Lopez', 'Iriarte', 'Amigorena 345', '3516485298', 3, 210, 0),
+(3, 'MariLo', 'Marilo3', 'Maria de los Angeles', 'Lopez', 'Heredia', 'San Juan 345', '3514578595', 0, 0, 0),
+(4, 'PedroMex', 'clave123', 'Pedro', 'Páramo', 'Perez', 'Pereyra Iraola 2345', '35148759685', 0, 0, 0),
+(5, 'MichaelJack', 'chirimoya', 'Michael', 'Pareyra', 'Perez', 'sarasa 2123', '1234567890', 0, 0, 0),
+(6, 'CamilaLoca', 'canejo213', 'Camila', 'Velez', 'Velez', 'Caseros 321', '3516478958', 0, 0, 0),
 (7, 'nombreusuario', 'contra', 'Pablo', 'ApellidoPadre', 'ApellidoMadre', 'Fake adress 123', '3516428652', 0, 0, 0),
 (8, 'PedroMartinez', '123456789', 'Pedro', 'Martinez', 'Mejía', 'La rioja 3456', '351456789', 0, 0, 0);
 
@@ -154,7 +157,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT de la tabla `lendings`
 --
 ALTER TABLE `lendings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

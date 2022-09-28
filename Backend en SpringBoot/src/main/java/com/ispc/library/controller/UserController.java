@@ -28,20 +28,18 @@ public class UserController {
         userService.registrarUsuario(usuario);
     }
     
-    @PostMapping("/loguin")
-    public boolean loguinUsuario( @RequestParam String username,
-                                  @RequestParam String password){
-        
+    @PostMapping(path="/login")
+    public boolean loguinUsuario( /*@RequestBody LoguinDto usuario */
+                                  @RequestParam("username") String username,
+                                  @RequestParam("password") String password){
+   
         LoguinDto datosUsu = new LoguinDto();
         datosUsu.setUsername(username);
         datosUsu.setPassword(password);
-        System.out.println("usuario " + username);
-        System.out.println("clave " + password);
         //falta validar que llegue un string de usuario y de clave
-        System.out.println("llega aca");
-        boolean retorno = userService.logginUsuario(datosUsu);
-        System.out.println("retorno " + retorno);
-        return retorno;
+   
+       // System.out.println(usuario.getPassword());
+        return userService.logginUsuario(datosUsu);
     }
     
     /*
