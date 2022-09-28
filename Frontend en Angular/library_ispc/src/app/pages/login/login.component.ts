@@ -19,13 +19,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   logueo(nombreUsuario: string, contra: string) {
-    //let datoslogueo = new DatosLoguin(nombreUsuario, contra);
+    // let datoslogueo = new DatosLoguin(nombreUsuario, contra);
     this.validarLogueo = this.logueoService
       .loguinService(nombreUsuario, contra)
       .subscribe((respuesta) => {
         console.log(respuesta);
         if (respuesta) {
-          console.log('entra al if');
           this.router.navigate(['/home']);
         } else {
           this.router.navigate(['/login']);
@@ -34,7 +33,6 @@ export class LoginComponent implements OnInit {
       });
 
     if (this.validarLogueo) {
-      console.log('entra al if');
       this.router.navigate(['/home']);
     } else {
       this.router.navigate(['/login']);
