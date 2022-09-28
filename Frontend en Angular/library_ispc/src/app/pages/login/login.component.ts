@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  validarLogueo: any;
   constructor(
     private http: HttpClient,
     private logueoService: LoginUserService,
@@ -19,15 +20,24 @@ export class LoginComponent implements OnInit {
 
   logueo(nombreUsuario: string, contra: string) {
     //let datoslogueo = new DatosLoguin(nombreUsuario, contra);
-    let validarLogueo = this.logueoService
+    this.validarLogueo = this.logueoService
       .loguinService(nombreUsuario, contra)
       .subscribe((respuesta) => {
         console.log(respuesta);
+        if (respuesta) {
+          console.log('entra al if');
+          this.router.navigate(['/home']);
+        } else {
+          this.router.navigate(['/login']);
+        }
         return respuesta;
       });
 
-    if (validarLogueo) {
+    if (this.validarLogueo) {
+      console.log('entra al if');
       this.router.navigate(['/home']);
+    } else {
+      this.router.navigate(['/login']);
     }
   }
 }
