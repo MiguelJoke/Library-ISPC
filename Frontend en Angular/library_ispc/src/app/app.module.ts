@@ -10,10 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { LibrosDisponiblesComponent } from './pages/catalogo/librosDisponibles/librosDisponibles.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { MisreservasComponent } from './pages/misreservas/misreservas.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'nosotros', component: NosotrosComponent},
+  { path: 'misreservas', component: MisreservasComponent},
 ];
 
 @NgModule({
@@ -23,6 +27,8 @@ const routes: Routes = [
     HeaderComponent,
     HomeComponent,
     LibrosDisponiblesComponent,
+    NosotrosComponent,
+    MisreservasComponent,
   ],
   imports: [
     BrowserModule,
