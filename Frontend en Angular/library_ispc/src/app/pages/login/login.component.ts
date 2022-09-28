@@ -1,28 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { LoginUserService } from 'src/app/services/login-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-
-
 export class LoginComponent implements OnInit {
+  constructor(
+    private http: HttpClient,
+    private logueoService: LoginUserService,
+    private router: Router
+  ) {}
 
-  logueo = " ";
+  ngOnInit(): void {}
 
-  constructor(private http: HttpClient) { }
+  logueo(nombreUsuario: string, contra: string) {
+    //let datoslogueo = new DatosLoguin(nombreUsuario, contra);
+    let validarLogueo = this.logueoService
+      .loguinService(nombreUsuario, contra)
+      .subscribe((respuesta) => {
+        console.log(respuesta);
+        return respuesta;
+      });
 
-  ngOnInit(): void {
-
-    //Consumo la Api
-    this.http.get('http://localhost:8080/loguin').subscribe((resp:any) =>{
-    this.logueo = resp;
+    if (validarLogueo) {
+      this.router.navigate(['/home']);
     }
-    )
-
   }
-
 }
