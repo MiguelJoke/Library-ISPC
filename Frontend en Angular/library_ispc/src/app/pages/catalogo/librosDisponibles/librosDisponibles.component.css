@@ -1,0 +1,68 @@
+.bghome {
+  background-image: url(/assets/img/bghome.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.listmenu {
+  margin-top: 350px;
+  list-style: none;
+  color: black;
+}
+
+.listmenu a {
+  color: white;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+.listmenu li {
+  margin-top: 20%;
+  text-align: center;
+}
+
+.listmenu li:hover {
+  border: none;
+  border-radius: 25px;
+  background-color: #0ed0f8;
+  color: black;
+  size: 10px;
+}
+
+.listmenu a:hover {
+  color: black;
+}
+
+.titulohome {
+  text-align: center;
+  margin-top: 200px;
+  color: white;
+}
+
+.txtbiblioteca {
+  font-size: 90px;
+  font-weight: bold;
+}
+
+.txtonline {
+  font-size: 120px;
+  font-weight: bold;
+  color: rgba(156, 247, 216, 0.712);
+}
+
+.slide {
+  font-size: xx-large;
+  text-align: center;
+  height: 340px;
+}
+
+.botonhome {
+  margin-left: 40%;
+  width: 130px;
+  background-color: cadetblue;
+  color: white;
+  border-radius: 20px;
+  border: none;
+}

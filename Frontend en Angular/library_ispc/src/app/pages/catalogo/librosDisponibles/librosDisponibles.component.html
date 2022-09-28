@@ -1,0 +1,45 @@
+<div class="container-fluid bghome">
+  <div class="row">
+    <div class="col-2">
+      <ul class="listmenu">
+        <li><a href="http://localhost:4200/home">Principal</a></li>
+        <li><a href="">Libros Disponibles</a></li>
+        <li><a href="">Mis reservas</a></li>
+        <li><a href="">Nosotros</a></li>
+        <li><a href="">Soporte</a></li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <img class=" p-0" src="/assets/img/imghome.png" alt="libroshome" height="580px">
+    </div>
+    <div class="col-6">
+      <div class="titulohome">
+        <h1>BIENVENIDOS</h1>
+        <h1 class="txtbiblioteca">Biblioteca</h1>
+        <h1 class="txtonline">ONLINE</h1>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Lenguaje</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let libro of librosDisponibles; index as i">
+            <th scope="row">{{libro.id}}</th>
+            <td>{{libro.title}}</td>
+            <td>{{libro.autor}}</td>
+            <td>{{libro.category}}</td>
+            <td>{{libro.lang}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
