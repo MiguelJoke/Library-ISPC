@@ -55,5 +55,14 @@
 .slide{
     font-size: xx-large;
     text-align: center;
-    height: 400px;
+    height: 340px;
+}
+
+.botonhome{
+    margin-left: 40%;
+    width: 130px;
+    background-color: cadetblue;
+    color: white;
+    border-radius: 20px;
+    border: none;
 }
