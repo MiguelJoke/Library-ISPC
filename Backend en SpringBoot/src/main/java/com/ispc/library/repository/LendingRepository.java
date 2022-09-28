@@ -12,6 +12,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -22,15 +23,23 @@ public class LendingRepository implements ILendingRepository {
 
     @Autowired
     private JdbcTemplate plantilla;
-    
+   
     @Autowired
     private IUserRepository userRepo;
     
-    @Override
+     
+    public LendingRepository(JdbcTemplate plantilla) {
+        this.plantilla = plantilla;
+    }
+     
+    
+    
+    @Transactional
     public void crearReserva(LendingDto libro) {
         User usuario = userRepo.buscarUnUsuario(libro.getNombreUsuario());
-        final String INSERT_LENDING= "INSERT INTO lendings (user_id, book_id, date_out, date_return) values (?,?,?,?)";
-        plantilla.update(INSERT_LENDING, usuario.getId(), libro.getIdLibro(),libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());
+        final String INSERT_LENDING = "INSERT INTO lendings (user_id, book_id, date_out, date_return) values (?,?,?,?)";
+        
+        plantilla.update(INSERT_LENDING, usuario.getId(), libro.getIdLibro(), libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());
     }
 
     @Override
