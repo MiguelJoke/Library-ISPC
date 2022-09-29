@@ -1,34 +1,40 @@
 <div class="container-fluid bghome">
-    <div class="row">
-      <div class="col-2">
-        <ul class="listmenu">
-            <li><a [routerLink]="['/home']">Principal</a></li>
-            <li><a [routerLink]="['/librosDisponibles']">Libros Disponibles</a></li>
-            <li><a [routerLink]="['/misreservas']">Mis reservas</a></li>
-            <li><a [routerLink]="['/nosotros']">Nosotros</a></li>
-            <li><a [routerLink]="['/home']">Soporte</a></li>
-        </ul>
-      </div>
-      <div class="col-1"></div>
-      <div class="col-9">
-        <div class="titulohome">
-          <h1 class="txtbiblioteca">Mis</h1>
-          <h1 class="txtonline">RESERVAS</h1>
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Titulo</th>
-              <th scope="col">Autor</th>
-              <th scope="col">Categoría</th>
-              <th scope="col">Lenguaje</th>
-            </tr>
-          </thead>
-          <tbody>
-  
-          </tbody>
-        </table>
-  
-      </div>
+  <div class="row">
+    <div class="col-2">
+      <ul class="listmenu">
+        <li><a [routerLink]="['/home']">Principal</a></li>
+        <li><a [routerLink]="['/librosDisponibles']">Libros Disponibles</a></li>
+        <li><a [routerLink]="['/misreservas']">Mis reservas</a></li>
+        <li><a [routerLink]="['/nosotros']">Nosotros</a></li>
+        <li><a [routerLink]="['/home']">Soporte</a></li>
+      </ul>
     </div>
+    <div class="col-1"></div>
+    <div class="col-9">
+      <div class="titulohome">
+        <h1 class="txtbiblioteca">Mis</h1>
+        <h1 class="txtonline">RESERVAS</h1>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id Libro</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Fecha de Salida</th>
+            <th scope="col">Fecha de Devolución</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reserva of listaReservas; index as i">
+            <th scope="row">{{reserva.idLibro}}</th>
+            <td>{{reserva.nombreLibro}}</td>
+            <td>{{reserva.autorLibro}}</td>
+            <td>{{reserva.fechaSalida}}</td>
+            <td>{{reserva.fechaPrevistaDevolucion}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
