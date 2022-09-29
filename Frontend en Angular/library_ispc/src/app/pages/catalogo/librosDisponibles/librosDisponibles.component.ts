@@ -9,6 +9,7 @@ import { Libro } from '../../model/Libros';
 })
 export class LibrosDisponiblesComponent implements OnInit {
   librosDisponibles: Libro[] = [];
+
   constructor(private reservasService: ReservasServiceService) {}
 
   ngOnInit() {

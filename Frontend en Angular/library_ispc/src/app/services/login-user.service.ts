@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DatosLoguin } from '../pages/model/datosLoguin';
 
@@ -8,6 +9,7 @@ import { DatosLoguin } from '../pages/model/datosLoguin';
 })
 export class LoginUserService {
   private url;
+  public nombreUsuario: string = '';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -18,7 +20,7 @@ export class LoginUserService {
   };
   public logueo: boolean;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.url = 'http://localhost:8080';
     this.logueo = false;
   }
@@ -29,6 +31,7 @@ export class LoginUserService {
     password: string
   ): Observable<boolean> {
     //let usu = new DatosLoguin(username, password);
+    this.nombreUsuario = username;
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);
@@ -36,5 +39,16 @@ export class LoginUserService {
     let loguin = this.url + '/login';
 
     return this.http.post<boolean>(loguin, formData);
+  }
+
+  public obtenerNombreUsuario() {
+    return this.nombreUsuario;
+  }
+
+  public validarLogin() {
+    this.nombreUsuario = this.obtenerNombreUsuario();
+    if ((this.nombreUsuario = '')) {
+      this.router.navigate(['/login']);
+    }
   }
 }
