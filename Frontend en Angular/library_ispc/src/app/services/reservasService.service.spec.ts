@@ -6,11 +6,14 @@ import { ReservasServiceService } from './reservasService.service';
 describe('Service: ReservasService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ReservasServiceService]
+      providers: [ReservasServiceService],
     });
   });
 
-  it('should ...', inject([ReservasServiceService], (service: ReservasServiceService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should ...', inject(
+    [ReservasServiceService],
+    (service: ReservasServiceService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });
