@@ -2,14 +2,13 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DatosLoguin } from '../pages/model/datosLoguin';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginUserService {
   private url;
-  public nombreUsuario: string = '';
+  public nombreUsuario: string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -23,6 +22,7 @@ export class LoginUserService {
   constructor(private http: HttpClient, private router: Router) {
     this.url = 'http://localhost:8080';
     this.logueo = false;
+    this.nombreUsuario = '';
   }
 
   //devuelve todas las aplicaciones
@@ -46,7 +46,7 @@ export class LoginUserService {
   }
 
   public validarLogin() {
-    this.nombreUsuario = this.obtenerNombreUsuario();
+    console.log(this.nombreUsuario);
     if ((this.nombreUsuario = '')) {
       this.router.navigate(['/login']);
     }

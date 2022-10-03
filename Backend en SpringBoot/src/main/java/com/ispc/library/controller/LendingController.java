@@ -3,11 +3,14 @@ package com.ispc.library.controller;
 
 import com.ispc.library.service.ILendingService;
 import dto.LendingDto;
+import dto.LoguinDto;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,9 +26,9 @@ public class LendingController {
     private ILendingService lendingService;
     
     
-    @PostMapping("/buscarReservas")
-    public List<LendingDto> buscarReservasxUsuario(@RequestBody String nombreUsuario){
-        return lendingService.buscarReservasxUsuario(nombreUsuario);
+    @GetMapping("/buscarReservas")
+    public List<LendingDto> buscarReservasxUsuario(@RequestParam String usuario){
+        return lendingService.buscarReservasxUsuario(usuario);
     }
     
     

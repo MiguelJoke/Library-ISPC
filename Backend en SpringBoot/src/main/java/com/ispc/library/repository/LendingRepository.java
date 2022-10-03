@@ -36,7 +36,9 @@ public class LendingRepository implements ILendingRepository {
     
     @Transactional
     public void crearReserva(LendingDto libro) {
+        
         User usuario = userRepo.buscarUnUsuario(libro.getNombreUsuario());
+        System.out.println("usuario " + usuario.getUsername());
         final String INSERT_LENDING = "INSERT INTO lendings (user_id, book_id, date_out, date_return) values (?,?,?,?)";
         
         plantilla.update(INSERT_LENDING, usuario.getId(), libro.getIdLibro(), libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());

@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DatosLoguin } from '../pages/model/datosLoguin';
 import { Libro } from '../pages/model/Libros';
 import { Reserva } from '../pages/model/Reserva';
 import { LoginUserService } from './login-user.service';
@@ -10,7 +12,8 @@ import { LoginUserService } from './login-user.service';
 })
 export class ReservasServiceService {
   private url;
-  private nombreUsuario: string;
+  private usuario: DatosLoguin;
+  private usu: string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -21,11 +24,12 @@ export class ReservasServiceService {
 
   constructor(
     private http: HttpClient,
-    private usuarioService: LoginUserService
+    private usuarioService: LoginUserService,
+    private router: Router
   ) {
     this.url = 'http://localhost:8080';
-    this.nombreUsuario = this.usuarioService.obtenerNombreUsuario();
-    console.log(this.nombreUsuario);
+    this.usuario = new DatosLoguin();
+    this.usu = '';
   }
 
   public obtenerLibrosDisponibles(): Observable<Libro[]> {
@@ -34,8 +38,13 @@ export class ReservasServiceService {
   }
 
   public consultarReservasXUsuario(): Observable<Reserva[]> {
-    let endpoint = this.url + '/buscarReservas';
-
-    return this.http.post<Reserva[]>(endpoint, this.nombreUsuario);
+    let endpoint =
+      this.url +
+      '/buscarReservas?usuario=' +
+      this.usuarioService.obtenerNombreUsuario();
+    // this.usuario.nombreUsuario = this.usuarioService.obtenerNombreUsuario();
+    //this.usuario.contrasenia = '';
+    //this.usu = this.usuarioService.obtenerNombreUsuario();
+    return this.http.get<Reserva[]>(endpoint, this.httpOptions);
   }
 }
