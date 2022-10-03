@@ -44,7 +44,7 @@ public class UserController {
     }
     
     /*
-    prueba para ver si funcionaba la busqueda de todos los usuarios
+    //prueba para ver si funcionaba la busqueda de todos los usuarios
     @GetMapping("/listaUsuarios")
     public List<User> buscarUsuarios(){
         return repoUser.buscarUsuarios();

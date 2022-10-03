@@ -77,6 +77,7 @@ public class UserRepository implements IUserRepository{
                                         usuario.setTel(rs.getString(8)); 
                                         usuario.setSanctions(rs.getInt(9)); 
                                         usuario.setSanc_money(rs.getInt(10)); 
+                                        
                                         return usuario;  
                                         }  
                                     });  
