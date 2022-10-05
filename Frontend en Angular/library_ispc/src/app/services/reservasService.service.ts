@@ -42,9 +42,7 @@ export class ReservasServiceService {
       this.url +
       '/buscarReservas?usuario=' +
       this.usuarioService.obtenerNombreUsuario();
-    // this.usuario.nombreUsuario = this.usuarioService.obtenerNombreUsuario();
-    //this.usuario.contrasenia = '';
-    //this.usu = this.usuarioService.obtenerNombreUsuario();
+
     return this.http.get<Reserva[]>(endpoint, this.httpOptions);
   }
 }
