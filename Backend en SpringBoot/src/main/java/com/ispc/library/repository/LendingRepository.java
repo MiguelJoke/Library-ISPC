@@ -36,12 +36,24 @@ public class LendingRepository implements ILendingRepository {
     
     @Transactional
     public void crearReserva(LendingDto libro) {
+        int idLibro = 0;
+        String nombreUsu = libro.getNombreUsuario();
+        List<User> listaUsuarios = userRepo.buscarUsuarios();
         
-        User usuario = userRepo.buscarUnUsuario(libro.getNombreUsuario());
-        System.out.println("usuario " + usuario.getUsername());
+        for(User usuario : listaUsuarios){
+            System.out.println("username " + usuario.getUsername());
+            System.out.println("traido de afuera " + nombreUsu);
+            if(usuario.getUsername().equalsIgnoreCase(nombreUsu)){
+                idLibro = usuario.getId();
+                System.out.println("idlibro " + idLibro );
+            }else{
+                System.out.println("entra por el false");
+            }           
+        }
+        
         final String INSERT_LENDING = "INSERT INTO lendings (user_id, book_id, date_out, date_return) values (?,?,?,?)";
         
-        plantilla.update(INSERT_LENDING, usuario.getId(), libro.getIdLibro(), libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());
+        plantilla.update(INSERT_LENDING, idLibro, libro.getIdLibro(), libro.getFechaSalida(), libro.getFechaPrevistaDevolucion());
     }
 
     @Override

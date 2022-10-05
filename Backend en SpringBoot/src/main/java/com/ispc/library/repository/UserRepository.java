@@ -44,6 +44,7 @@ public class UserRepository implements IUserRepository{
                                         List<User> list=new ArrayList<User>();  
                                         while(rs.next()){  
                                         User e=new User();  
+                                        e.setId(rs.getInt(1));
                                         e.setUsername(rs.getString(2));  
                                         e.setPassword(rs.getString(3));  
                                         e.setName(rs.getString(4));  
