@@ -17,11 +17,9 @@ export class LoginUserService {
       //'Access-Control-Request-Headers': '*',
     }),
   };
-  public logueo: boolean;
 
   constructor(private http: HttpClient, private router: Router) {
     this.url = 'http://localhost:8080';
-    this.logueo = false;
     this.nombreUsuario = '';
   }
 
@@ -32,6 +30,7 @@ export class LoginUserService {
   ): Observable<boolean> {
     //let usu = new DatosLoguin(username, password);
     this.nombreUsuario = username;
+    localStorage.setItem('usuario', this.nombreUsuario);
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);
@@ -42,11 +41,11 @@ export class LoginUserService {
   }
 
   public obtenerNombreUsuario() {
-    return this.nombreUsuario;
+    let nombreusu = localStorage.getItem('usuario');
+    return nombreusu;
   }
 
   public validarLogin() {
-    console.log(this.nombreUsuario);
     if ((this.nombreUsuario = '')) {
       this.router.navigate(['/login']);
     }
