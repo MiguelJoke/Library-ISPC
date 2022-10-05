@@ -41,13 +41,10 @@ public class LendingRepository implements ILendingRepository {
         List<User> listaUsuarios = userRepo.buscarUsuarios();
         
         for(User usuario : listaUsuarios){
-            System.out.println("username " + usuario.getUsername());
-            System.out.println("traido de afuera " + nombreUsu);
+            
             if(usuario.getUsername().equalsIgnoreCase(nombreUsu)){
                 idLibro = usuario.getId();
-                System.out.println("idlibro " + idLibro );
-            }else{
-                System.out.println("entra por el false");
+            
             }           
         }
         
